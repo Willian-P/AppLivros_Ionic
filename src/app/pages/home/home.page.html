@@ -1,0 +1,39 @@
+<ion-header class="header cor" >
+  <ion-toolbar>
+    <ion-title class="title cor">
+      <ion-icon name="library-outline" class="icon"></ion-icon>
+      Livraria
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center ion-padding-top">
+  <div class="conteudo border">
+    <ion-list class="list corBranco border">
+      <ion-text color="tertiary" class="corBranco ion-padding-top">
+        <h2>Biblioteca</h2>
+      </ion-text>
+      <ion-item-sliding *ngFor="let livro of livros">
+        <ion-card class="corBranco">
+          <ion-item>
+            <ion-avatar class="icon">
+              <img src="{{livro.downloadURL}}" />
+            </ion-avatar>
+            <ion-label class="ion-padding-start">{{livro.nome}}</ion-label>
+          </ion-item>
+        </ion-card>
+        <ion-item-options side="end">
+          <ion-item-option (click)="irParaDetalhar(livro)">
+            <ion-icon name="create-outline"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="irParaCadastrar()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

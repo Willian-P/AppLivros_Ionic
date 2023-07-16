@@ -1,0 +1,231 @@
+<ion-header class="header cor">
+  <ion-toolbar>
+    <ion-title class="title cor">
+      <ion-icon name="library-outline" class="icon"></ion-icon>
+      Livraria
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center ion-padding-top">
+  <div class="conteudo border">
+    <ion-list class="list border">
+      <ion-text color="tertiary" class="ion-padding-top">
+        <h2>Cadastrar Livro</h2>
+      </ion-text>
+      <form [formGroup]="form_cadastrar" (ngSubmit)="submitForm()">
+        <ion-text class="ion-text-center">Nome</ion-text>
+        <ion-item class="ion-text-center">
+          <ion-input
+            placeholder="Nome do livro"
+            formControlName="nome"
+          ></ion-input>
+        </ion-item>
+        <ion-item
+          *ngIf="
+      (((errorControl.nome.touched) || (errorControl.nome.dirty)) && errorControl.nome.errors)"
+        >
+          <span *ngIf="errorControl.nome.errors?.required">
+            Nome é obrigatório
+          </span>
+        </ion-item>
+
+        <ion-text class="ion-text-center">Autor</ion-text>
+        <ion-item class="ion-text-center">
+          <ion-input placeholder="Autor" formControlName="autor"></ion-input>
+        </ion-item>
+        <ion-item
+          *ngIf="
+      (((errorControl.autor.touched) || (errorControl.autor.dirty)) && errorControl.autor.errors)"
+        >
+          <span *ngIf="errorControl.autor.errors?.required">
+            Autor é obrigatório!
+          </span>
+        </ion-item>
+
+        <ion-text class="ion-text-center">Edição Número</ion-text>
+        <ion-item class="ion-text-center">
+          <ion-input
+            placeholder="Edicão"
+            formControlName="edicao"
+            type="number"
+          ></ion-input>
+        </ion-item>
+        <ion-item
+          *ngIf="
+      (((errorControl.edicao.touched) || (errorControl.edicao.dirty)) && errorControl.edicao.errors)"
+        >
+          <span *ngIf="errorControl.edicao.errors?.required">
+            Edição é obrigatório!
+          </span>
+          <span *ngIf="errorControl.edicao.errors?.min">
+            Edição não pode ser 0!
+          </span>
+          <span *ngIf="errorControl.edicao.errors?.max">
+            Edição não pode passar de 50!
+          </span>
+        </ion-item>
+
+        <ion-text class="ion-text-center">Número de Páginas</ion-text>
+        <ion-item class="ion-text-center">
+          <ion-input
+            placeholder="Número de páginas"
+            formControlName="paginas"
+            type="number"
+          ></ion-input>
+        </ion-item>
+        <ion-item
+          *ngIf="
+      (((errorControl.paginas.touched) || (errorControl.paginas.dirty)) && errorControl.paginas.errors)"
+        >
+          <span *ngIf="errorControl.paginas.errors?.required">
+            Páginas é obrigatório!
+          </span>
+          <span *ngIf="errorControl.paginas.errors?.min">
+            Página não pode ser 0!
+          </span>
+          <span *ngIf="errorControl.paginas.errors?.max">
+            Página não pode passar de 10000!
+          </span>
+        </ion-item>
+
+        Editora
+        <ion-item class="ion-text-center">
+          <ion-input
+            placeholder="Editora"
+            formControlName="editora"
+          ></ion-input>
+        </ion-item>
+        <ion-item
+          *ngIf="
+      (((errorControl.editora.touched) || (errorControl.editora.dirty)) && errorControl.editora.errors)"
+        >
+          <span *ngIf="errorControl.edicao.errors?.required">
+            Editora é obrigatório!
+          </span>
+        </ion-item>
+
+        <ion-item>
+          <ion-text class="ion-text-center">Gênero: </ion-text>
+          <ion-list>
+            <ion-item class="ion-text-center">
+              <ion-select
+                placeholder="Selecione o Genero"
+                formControlName="genero"
+              >
+                <!--Modificado-->
+                <ion-select-option value="ficcao"
+                  >Ficção Cientifica</ion-select-option
+                >
+                <ion-select-option value="romance">Romance</ion-select-option>
+                <ion-select-option value="acao">Ação</ion-select-option>
+                <ion-select-option value="magia">Magia</ion-select-option>
+                <ion-select-option value="historico"
+                  >Historico</ion-select-option
+                >
+                <ion-select-option value="infantil">Infantil</ion-select-option>
+                <ion-select-option value="aventura">Aventura</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </ion-item>
+        <ion-item
+          *ngIf="
+          (((errorControl.genero.touched) || (errorControl.genero.dirty)) && errorControl.genero.errors)"
+        >
+          <span *ngIf="errorControl.genero.errors?.required">
+            Gênero é obrigatório
+          </span>
+        </ion-item>
+
+        <ion-item>
+          <ion-text class="ion-text-center">Sub Gênero </ion-text>
+          <ion-list>
+            <ion-item class="ion-text-center">
+              <ion-select
+                placeholder="Selecione o Sub genero"
+                formControlName="subGenero"
+              >
+                <ion-select-option value="ficcao"
+                  >Ficção Cientifica</ion-select-option
+                >
+                <ion-select-option value="romance">Romance</ion-select-option>
+                <ion-select-option value="acao">Ação</ion-select-option>
+                <ion-select-option value="magia">Magia</ion-select-option>
+                <ion-select-option value="historico"
+                  >Historico</ion-select-option
+                >
+                <ion-select-option value="infantil">Infantil</ion-select-option>
+                <ion-select-option value="aventura">Aventura</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </ion-item>
+
+        <ion-item>
+          <ion-text class="ion-text-center">Encadernação: </ion-text>
+          <ion-list>
+            <ion-item class="ion-text-center">
+              <ion-select
+                placeholder="Selecione a Encadernação"
+                formControlName="encadernacao"
+              >
+                <ion-select-option value="capaDura"
+                  >Capa Dura</ion-select-option
+                >
+                <ion-select-option value="capaMole"
+                  >Capa Mole</ion-select-option
+                >
+                <ion-select-option value="semCapa">Sem Capa</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </ion-item>
+        <ion-item
+          *ngIf="
+      (((errorControl.encadernacao.touched) || (errorControl.encadernacao.dirty)) && errorControl.encadernacao.errors)"
+        >
+          <span *ngIf="errorControl.encadernacao.errors?.required">
+            Encadernação é obrigatório
+          </span>
+        </ion-item>
+
+        <ion-item>
+          <ion-text class="ion-text-center"> Data de Lançamento: </ion-text>
+          <ion-datetime-button
+            datetime="datetime"
+            color="tertiary"
+          ></ion-datetime-button>
+          <ion-modal [keepContentsMounted]="true">
+            <ng-template>
+              <ion-datetime
+                id="datetime"
+                max="{{data}}"
+                presentation="date"
+                formControlName="data_lancamento"
+              >
+              </ion-datetime>
+            </ng-template>
+          </ion-modal>
+        </ion-item>
+        <ion-item class="botao">
+          <ion-button
+            class="envio"
+            expand="block"
+            shape="round"
+            color="tertiary"
+          >
+            <input
+              type="file"
+              formControlName="imagem"
+              (change)="uploadFile($event.target)"
+            />
+          </ion-button>
+        </ion-item>
+        <ion-button expand="block" shape="round" color="tertiary" type="submit">
+          Concluir Cadastro
+        </ion-button>
+      </form>
+    </ion-list>
+  </div>
+</ion-content>

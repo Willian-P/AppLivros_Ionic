@@ -1,0 +1,52 @@
+.cor {
+  background-color: #c0a8e7;
+}
+.corBranco {
+  background-color: white;
+}
+.title {
+  color: #321e44;
+}
+.header {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.icon {
+  zoom: 1.5;
+}
+.border {
+  border-radius: 30px 30px 40px 40px;
+}
+.conteudo {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding-top: 1rem;
+}
+.list {
+  height: 100vh;
+}
+ion-header {
+  height: 3rem;
+}
+ion-content {
+  --ion-background-color: #c0a8e7;
+}
+ion-list {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+ion-title {
+  font-size: 1.6rem;
+}
+ion-card {
+  margin-bottom: 5px;
+  margin-top: 10px;
+  --color: #6414af;
+  box-shadow: rgb(0 0 0 / 12%) 0px 2px 4px;
+}
+ion-fab-button,
+ion-item-option {
+  --background: #b69ce0;
+  --background-activated: #6f4498;
+}
